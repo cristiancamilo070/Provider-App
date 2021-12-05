@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_new
 
 import 'package:flutter/material.dart';
-import 'package:provider/pages/home_page.dart';
-import 'package:provider/pages/map_page.dart';
+import 'package:provider/provider.dart';
+import 'package:testprov/pages/home_page.dart';
+import 'package:testprov/pages/map_page.dart';
+import 'package:testprov/providers/ui_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,21 +13,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Provider Examples',
-      initialRoute: 'home',
-      routes: {
-        'home'  :(_)=>HomePage(),
-        'map'   :(_)=>MapPage()
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Colors.deepPurple
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>new UiProvider(),)
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'testprov',
+        initialRoute: 'home',
+        routes: {
+          'home'  :(_)=>HomePage(),
+          'map'   :(_)=>MapPage()
+        },
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.deepPurple
+          )
+    
         )
-
-      )
+      ),
     );
   }
 }
