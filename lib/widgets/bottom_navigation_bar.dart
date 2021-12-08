@@ -12,6 +12,7 @@ class CustomNavigationBar extends StatelessWidget {
     //Obtener el selected menu opt
     final uiProvider=Provider.of<UiProvider>(context);
     final currentIndex=uiProvider.selectedMenuOpt;
+    
     return BottomNavigationBar(
       onTap: (int i)=>uiProvider.selectedMenuOpt = i,
       currentIndex: currentIndex,
