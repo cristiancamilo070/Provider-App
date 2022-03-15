@@ -22,7 +22,7 @@ class AddressPage extends StatelessWidget {
         textStyle: const TextStyle(color: Colors.green),
         padding: const EdgeInsets.all(0.0)
       ),
-        onPressed: ()=>uiProvider.name =currentName,
+        onPressed: ()=> uiProvider.name,
          child: Ink(
       decoration:BoxDecoration(
       gradient: LinearGradient(colors: [Colors.purple.withOpacity(0.6), Colors.green]),
@@ -48,7 +48,7 @@ Widget _nombre( BuildContext context) {
       onSaved: (value) =>currentName,
       decoration: InputDecoration(
                 hintText: "Escribe el nombre",
-                labelStyle: const TextStyle(color: Colors.purple ),
+                labelStyle: const TextStyle(color: Colors.purple),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide.none
